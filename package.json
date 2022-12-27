@@ -7,9 +7,9 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "html2json": "^1.0.2",
+    "dayjs": "^1.11.7",
     "debug": "=2.6.9",
-    "moment": "=2.19.3",
+    "html2json": "^1.0.2",
     "moxie-zip": "=0.0.3",
     "timsort": "=0.3.0",
     "xml-js": "^1.6.11",
@@ -42,5 +42,5 @@
     "lint:fix": "eslint ./*/**.js --fix",
     "test": "node ./node_modules/mocha/bin/mocha test --timeout 100000 --exit"
   },
-  "version": "4.0.0"
+  "version": "4.1.0"
 }
