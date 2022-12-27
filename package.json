@@ -5,6 +5,7 @@
   "bin": {
     "carbone": "bin/carbone"
   },
+  "types": "types/lib/index.d.ts",
   "bundleDependencies": false,
   "dependencies": {
     "dayjs": "^1.11.7",
