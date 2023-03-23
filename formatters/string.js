@@ -182,7 +182,7 @@ function convCRLF (d) {
   if (typeof d === 'string') {
     var _lineBreak = LINEBREAK[this.extension];
     if (_lineBreak) {
-      return d.replace(/\r?\n/g, _lineBreak);
+      return d.replace(/\\n|\r?\n/g, _lineBreak);
     }
   }
   return d;
