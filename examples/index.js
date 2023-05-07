@@ -19,6 +19,12 @@ carbone.render('image.docx', JSON.parse(JSON.stringify(dataDOCXImage)))
   })
   .catch(err => console.error(err));
 
+carbone.renderParallel('image.docx', JSON.parse(JSON.stringify(dataDOCXImage)))
+  .then(({ result }) => {
+    fs.writeFileSync('resultImageParallel.docx', result);
+  })
+  .catch(err => console.error(err));
+
 const dataDOCXHTML = {
   html: 'Regular text <em>em</em> regular text <i>italic</i> regular text <strong>strong</strong> regular text <u>underline</u> regular text</p>'
 };
