@@ -47,3 +47,4 @@ export function formatD(d: string | number, patternOut: string, patternIn: strin
  * @return {String}            return formatted date
  */
 export function convDate(d: string | number, patternIn: string, patternOut: string): string;
+//# sourceMappingURL=date.d.ts.map

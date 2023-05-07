@@ -9,3 +9,4 @@ export function _isHTMLFile(template: any): boolean;
 export function _checkMimetypeFile(template: any, string: string): boolean;
 export function _checkWordInFilename(template: any, string: string): boolean;
 export function buildFile(report: any, callback: Function): any;
+//# sourceMappingURL=file.d.ts.map

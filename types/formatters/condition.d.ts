@@ -291,3 +291,4 @@ export class or {
     constructor(d: Mixed, value: Mixed, ...args: any[]);
     isAndOperator: boolean;
 }
+//# sourceMappingURL=condition.d.ts.map

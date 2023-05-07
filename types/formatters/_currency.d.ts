@@ -2582,3 +2582,4 @@ export namespace OKB {
     const name_184: string;
     export { name_184 as name };
 }
+//# sourceMappingURL=_currency.d.ts.map

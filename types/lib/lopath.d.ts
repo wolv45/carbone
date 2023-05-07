@@ -15,3 +15,4 @@ export class PathError {
  */
 export function convertToURL(inputPath: string): string;
 export { convertToURL as ConvertToURL };
+//# sourceMappingURL=lopath.d.ts.map

@@ -187,3 +187,4 @@ export function padr(d: string, targetLength: number, padString: string): string
 export function imageSize(d: any, width: any, height: any): any;
 export function html(d: any): string;
 export { substr as slice };
+//# sourceMappingURL=string.d.ts.map

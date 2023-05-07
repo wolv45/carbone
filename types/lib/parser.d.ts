@@ -14,3 +14,4 @@ export function findClosingTagPosition(rightSideXml: string, indexWhereToStartSe
 export function findPivot(partialXml: string): any;
 export function findRepetitionPosition(xml: string, pivot: any, roughStartIndex: integer): any;
 export function findSafeConditionalBlockPosition(xml: string, startSearchIndex: Integer, endSearchIndex: Integer): any[];
+//# sourceMappingURL=parser.d.ts.map

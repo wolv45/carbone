@@ -46,3 +46,4 @@ export declare namespace currencyRates {
     const THB: number;
     const ZAR: number;
 }
+//# sourceMappingURL=params.d.ts.map

@@ -5,3 +5,4 @@ export function readSharedString(sharedStringXml: string): any[];
 export function convertToInlineString(xml: string, sharedStrings: any[]): string;
 export function removeRowCounterInWorksheet(xml: string): string;
 export function convertNumberMarkersIntoNumericFormat(template: any): any;
+//# sourceMappingURL=preprocessor.d.ts.map

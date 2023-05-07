@@ -6,3 +6,4 @@ export function getLoopIteration(loopIds: any, part: any): void;
 export function sortXmlParts(arrayToSort: any[]): any;
 export function forEachArrayExit(currentlyVisitedArrays: any[], objDependencyDescriptor: any, nextAttrName: string, execute: Function): void;
 export function getBuilderFunction(descriptor: any, existingFormatters: any): Function;
+//# sourceMappingURL=builder.d.ts.map

@@ -1860,3 +1860,4 @@ declare const locales: {
         };
     };
 };
+//# sourceMappingURL=_locale.d.ts.map

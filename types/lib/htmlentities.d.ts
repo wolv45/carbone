@@ -14,3 +14,4 @@ export const entities: ({
 export declare function decode(text: any): any;
 export declare function encode(text: any): any;
 export declare function decodeLG(text: any): any;
+//# sourceMappingURL=htmlentities.d.ts.map

@@ -57,3 +57,4 @@ export function checkAndSetOptionsForPDF(userDefinedPDFFilters: any, convertToOb
  * @return {Boolean} Return true if the extensions format are not matching, otherwise false.
  */
 export function checkDocTypeAndOutputExtensions(extensionIn: string, extensionOut: string): boolean;
+//# sourceMappingURL=input.d.ts.map

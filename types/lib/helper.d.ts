@@ -13,3 +13,4 @@ export function regexEscape(str: string): string;
 export function removeDuplicatedRows(sortedArrayToClean: any[]): any[];
 export function findClosest(str: string, choices: any): string;
 export function distance(s1: string, s2: string): Integer;
+//# sourceMappingURL=helper.d.ts.map

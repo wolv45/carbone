@@ -23,3 +23,4 @@ declare class html2xml {
     buildText(child: any): void;
     convert(item: any): void;
 }
+//# sourceMappingURL=html2xml.d.ts.map

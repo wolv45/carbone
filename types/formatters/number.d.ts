@@ -187,3 +187,4 @@ export declare function int(d: any): number;
 export declare function toEN(d: any): string;
 export declare function toFixed(d: any, nb: number): string;
 export declare function toFR(d: any): string;
+//# sourceMappingURL=number.d.ts.map
