@@ -38,6 +38,14 @@ or
     })
     .catch((err) => console.error(err));
 
+Usage (promise style, executes in worker):
+
+    carbone.renderParallel('template.docx', data))
+    .then(({ result }) => {
+       fs.writeFileSync('result.docx', result);
+    })
+    .catch((err) => console.error(err));
+
 
 ## DOCX:
 
