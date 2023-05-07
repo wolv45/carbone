@@ -1,5 +1,44 @@
 # Changes:
 
+## API:
+
+Usage (callback style):
+
+    carbone.renderCallback('template.docx', data, (err, result, templateName) => {
+      if(err) {
+        console.error(err);
+      } else {
+        fs.writeFileSync('result.docx', result);
+      }
+    });
+
+or:
+
+    carbone.render('template.docx', data, (err, result, templateName) => {
+      if(err) {
+        console.error(err);
+      } else {
+        fs.writeFileSync('result.docx', result);
+      }
+    });
+
+Usage (promise style):
+
+    carbone.renderPromise('template.docx', data))
+    .then(({ result }) => {
+       fs.writeFileSync('result.docx', result);
+    })
+    .catch((err) => console.error(err));
+
+or 
+
+    carbone.render('template.docx', data))
+    .then(({ result }) => {
+       fs.writeFileSync('result.docx', result);
+    })
+    .catch((err) => console.error(err));
+
+
 ## DOCX:
 
 ### HTML (minimal)
@@ -125,7 +164,7 @@ Example: {d.image:imageSize(100,200)}
 
   </details>
 
-
+--------------------------------------------------------------------
 <details>
   <summary>
     <strong> Original README.md </strong>
