@@ -99,7 +99,7 @@ export function convEnum(d: Integer | string, type: string): string;
  */
 export function convCRLF(d: Integer | string): string;
 export namespace convCRLF {
-    const canInjectXML: boolean;
+    let canInjectXML: boolean;
 }
 /**
  * Removes accents from text
@@ -185,6 +185,8 @@ export function padl(d: string, targetLength: number, padString: string): string
  */
 export function padr(d: string, targetLength: number, padString: string): string;
 export function imageSize(d: any, width: any, height: any): any;
+export function md5(d: any): string;
+export function prepend(d: any, toPrepend: any): any;
 export function html(d: any): string;
 export { substr as slice };
 //# sourceMappingURL=string.d.ts.map

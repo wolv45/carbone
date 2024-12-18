@@ -1,4 +1,6 @@
+export function isCarboneMarker(oneMarker: string): boolean;
 export function findMarkers(xml: string, callback: Function): void;
+export function removeXMLInsideMarkers(xml: string): string;
 export function extractMarker(markerStr: string): string;
 export function cleanMarker(markerStr: string): string;
 export function replaceEncodedOperatorCharactersByNoEncodedCharacters(str: string): string;
@@ -11,7 +13,10 @@ export function preprocessMarkers(markers: any[], variables: any[], callback: an
 export function assignLoopId(markers: any[]): any[];
 export function findOpeningTagPosition(leftSideXml: string, indexWhereToStopSearch: integer): integer;
 export function findClosingTagPosition(rightSideXml: string, indexWhereToStartSearch: integer): integer;
-export function findPivot(partialXml: string): any;
-export function findRepetitionPosition(xml: string, pivot: any, roughStartIndex: integer): any;
-export function findSafeConditionalBlockPosition(xml: string, startSearchIndex: Integer, endSearchIndex: Integer): any[];
+export function findPivot(partialXml: string): object;
+export function findRepetitionPosition(xml: string, pivot: object, roughStartIndex: integer): object;
+export function flattenXML(xml: string): any[];
+export function moveConditionalBlockBeginEnd(xmlTree: any[], beginFlattenXMLIndex: Integer, beginTextIndex: Integer, endTextIndex: Integer): any;
+export function findSafeConditionalBlockPosition(xmlFlattened: string, beginTextIndex: any, endTextIndex: any): any[];
+export function parseMathematicalExpression(mathExpr: string, safeVariableInjectionFn: Function): string;
 //# sourceMappingURL=parser.d.ts.map

@@ -1,16 +1,24 @@
 /**
- * Format number according to the locale
+ * Format number according to the locale.
+ * Applying a number of decimals depends on the report type:
+ * - For ODS/XLSX, the number of decimals has to be formatted based on the text editor.
+ * - For the other type of files, the number of decimals depends on the `precision` parameter passed to the formatter.
+ *
+ * @version 1.2.0
  *
  * @exampleContext {"lang":"en-us"}
  * @example ["10"          ]
  * @example ["1000.456"    ]
  *
  * @param  {Number} d          Number to format
- * @param  {Number} precision  [optional] Number of decimal
+ * @param  {Number} precision  [optional] Number of decimals
  * @return {String} return     converted values
  */
 export function formatN(d: number, precision: number): string;
 /**
+ *
+ * @version 1.2.0
+ *
  * Format currency numbers
  *
  * Currencies are defined by the locale (`options.lang`). It can be overwritten by
@@ -48,6 +56,9 @@ export function formatN(d: number, precision: number): string;
 export function formatC(d: number, precisionOrFormat: number): string;
 export class formatC {
     /**
+     *
+     * @version 1.2.0
+     *
      * Format currency numbers
      *
      * Currencies are defined by the locale (`options.lang`). It can be overwritten by
@@ -93,6 +104,8 @@ export class formatC {
  *
  * `convCurr()`  without parameters converts automatically from `options.currencySource` to `options.currencyTarget`.
  *
+ * @version 1.2.0
+ *
  * @exampleContext {"currency": { "source":"EUR", "target":"USD", "rates": { "EUR":1, "USD":2 }} }
  * @example [10                  ]
  * @example [1000                ]
@@ -115,6 +128,8 @@ export class convCurr {
      *
      * `convCurr()`  without parameters converts automatically from `options.currencySource` to `options.currencyTarget`.
      *
+     * @version 1.2.0
+     *
      * @exampleContext {"currency": { "source":"EUR", "target":"USD", "rates": { "EUR":1, "USD":2 }} }
      * @example [10                  ]
      * @example [1000                ]
@@ -135,6 +150,8 @@ export class convCurr {
  *
  * Same as toFixed(2) but it rounds number correclty `round(1.05, 1) = 1.1`
  *
+ * @version 1.2.0
+ *
  * @example [10.05123  , 2  ]
  * @example [1.05      , 1  ]
  *
@@ -146,6 +163,8 @@ export function round(num: number, precision: number): number;
 /**
  * Add two numbers
  *
+ * @version 1.2.0
+ *
  * @example [1000.4  ,  2  ]
  * @example ["1000.4", "2" ]
  *
@@ -153,8 +172,13 @@ export function round(num: number, precision: number): number;
  * @return {Number} Result
  */
 export function add(d: any, value: number): number;
+export namespace add {
+    let isAcceptingMathExpression: boolean;
+}
 /**
  * Substract two numbers
+ *
+ * @version 1.2.0
  *
  * @example [1000.4  ,  2  ]
  * @example ["1000.4", "2" ]
@@ -163,8 +187,14 @@ export function add(d: any, value: number): number;
  * @return {Number} Result
  */
 export function sub(d: any, value: number): number;
+export namespace sub {
+    let isAcceptingMathExpression_1: boolean;
+    export { isAcceptingMathExpression_1 as isAcceptingMathExpression };
+}
 /**
  * Multiply two numbers
+ *
+ * @version 1.2.0
  *
  * @example [1000.4  ,  2  ]
  * @example ["1000.4", "2" ]
@@ -173,8 +203,14 @@ export function sub(d: any, value: number): number;
  * @return {Number} Result
  */
 export function mul(d: any, value: number): number;
+export namespace mul {
+    let isAcceptingMathExpression_2: boolean;
+    export { isAcceptingMathExpression_2 as isAcceptingMathExpression };
+}
 /**
  * Divide two numbers
+ *
+ * @version 1.2.0
  *
  * @example [1000.4   ,  2  ]
  * @example ["1000.4" , "2" ]
@@ -183,6 +219,10 @@ export function mul(d: any, value: number): number;
  * @return {Number} Result
  */
 export function div(d: any, value: number): number;
+export namespace div {
+    let isAcceptingMathExpression_3: boolean;
+    export { isAcceptingMathExpression_3 as isAcceptingMathExpression };
+}
 export declare function int(d: any): number;
 export declare function toEN(d: any): string;
 export declare function toFixed(d: any, nb: number): string;

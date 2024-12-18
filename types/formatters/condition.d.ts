@@ -1,5 +1,23 @@
 /**
- * Test if a string or an array contains a value
+ * Detect conditional block begin/end
+ *
+ * @private
+ * @param  {String}   marker
+ * @return {Boolean}  true if there is a showEnd/hideEnd formatter
+ */
+export function _isConditionalBlockEndMarker(marker: string): boolean;
+/**
+ * Detect conditional block begin/end
+ *
+ * @private
+ * @param  {String}   marker
+ * @return {Boolean}  true if there is a showBegin/hideBegin formatter
+ */
+export function _isConditionalBlockBeginMarker(marker: string): boolean;
+/**
+ * Test if a string or an array contains a value. The new formatter `ifIN` should be used instead of this one.
+ *
+ * @version 0.13.0
  *
  * @example [ "your beautiful eyes", "beauti",  "bingo" ]
  * @example [ "your beautiful eyes", "leg"   ,  "bingo" ]
@@ -20,7 +38,9 @@
 export function ifContain(d: string | any[], value: string | Integer | boolean, messageIfTrue: string, continueOnSuccess: boolean): Mixed;
 export class ifContain {
     /**
-     * Test if a string or an array contains a value
+     * Test if a string or an array contains a value. The new formatter `ifIN` should be used instead of this one.
+     *
+     * @version 0.13.0
      *
      * @example [ "your beautiful eyes", "beauti",  "bingo" ]
      * @example [ "your beautiful eyes", "leg"   ,  "bingo" ]
@@ -42,7 +62,9 @@ export class ifContain {
     stopPropagation: boolean;
 }
 /**
- * Test if data is empty (null, undefined, [], {}, ...)
+ * Test if data is empty (null, undefined, [], {}, ...). The new formatter `ifEM` should be used instead of this one.
+ *
+ * @version 0.12.5
  *
  * @example [ null     ,  "D'oh!" ]
  * @example [ []       ,  "D'oh!" ]
@@ -61,7 +83,9 @@ export class ifContain {
 export function ifEmpty(d: Mixed, message: string, continueOnSuccess: boolean): Mixed;
 export class ifEmpty {
     /**
-     * Test if data is empty (null, undefined, [], {}, ...)
+     * Test if data is empty (null, undefined, [], {}, ...). The new formatter `ifEM` should be used instead of this one.
+     *
+     * @version 0.12.5
      *
      * @example [ null     ,  "D'oh!" ]
      * @example [ []       ,  "D'oh!" ]
@@ -81,7 +105,9 @@ export class ifEmpty {
     stopPropagation: boolean;
 }
 /**
- * Test if a value equals a variable
+ * Test if a value equals a variable. The new formatter `ifEQ` should be used instead of this one.
+ *
+ * @version 0.13.0
  *
  * @example [ 100      , 100     ,  "bingo" ]
  * @example [ 100      , 101     ,  "bingo" ]
@@ -101,7 +127,9 @@ export class ifEmpty {
 export function ifEqual(d: string | Integer | boolean, value: string | Integer | boolean, messageIfTrue: string, continueOnSuccess: boolean): Mixed;
 export class ifEqual {
     /**
-     * Test if a value equals a variable
+     * Test if a value equals a variable. The new formatter `ifEQ` should be used instead of this one.
+     *
+     * @version 0.13.0
      *
      * @example [ 100      , 100     ,  "bingo" ]
      * @example [ 100      , 101     ,  "bingo" ]
@@ -122,123 +150,473 @@ export class ifEqual {
     stopPropagation: boolean;
 }
 /**
- * Test if data is empty (null, undefined, [], {}, ...)
+ * Matches empty values, string, arrays or objects (null, undefined, [], {}, ...), it replaces `ifEmpty`.
  *
- * @version 2.0
- * @example [ null     ]
- * @example [ []       ]
- * @example [ {}       ]
- * @example [ ""       ]
- * @example [ 0        ]
- * @example [ "homer"  ]
- * @example [ [23]     ]
- * @example [ {"id":3} ]
+ * @version 2.0.0
+ * @exampleContextFormatter [ null     ] true
+ * @exampleContextFormatter [ []       ] true
+ * @exampleContextFormatter [ {}       ] true
+ * @exampleContextFormatter [ ""       ] true
+ * @exampleContextFormatter [ 0        ] false
+ * @exampleContextFormatter [ "homer"  ] false
+ * @exampleContextFormatter [ [23]     ] false
+ * @exampleContextFormatter [ {"id":3} ] false
  *
  * @param  {Mixed} d  data
  */
 export function ifEM(d: Mixed): Mixed;
 export class ifEM {
     /**
-     * Test if data is empty (null, undefined, [], {}, ...)
+     * Matches empty values, string, arrays or objects (null, undefined, [], {}, ...), it replaces `ifEmpty`.
      *
-     * @version 2.0
-     * @example [ null     ]
-     * @example [ []       ]
-     * @example [ {}       ]
-     * @example [ ""       ]
-     * @example [ 0        ]
-     * @example [ "homer"  ]
-     * @example [ [23]     ]
-     * @example [ {"id":3} ]
+     * @version 2.0.0
+     * @exampleContextFormatter [ null     ] true
+     * @exampleContextFormatter [ []       ] true
+     * @exampleContextFormatter [ {}       ] true
+     * @exampleContextFormatter [ ""       ] true
+     * @exampleContextFormatter [ 0        ] false
+     * @exampleContextFormatter [ "homer"  ] false
+     * @exampleContextFormatter [ [23]     ] false
+     * @exampleContextFormatter [ {"id":3} ] false
      *
      * @param  {Mixed} d  data
      */
     constructor(d: Mixed);
-    isConditionTrue: [type];
+    isConditionTrue: boolean;
 }
-export function ifNEM(d: any): any;
+/**
+ * Matches not empty values, string, arrays or objects.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [ 0        ] true
+ * @exampleContextFormatter [ "homer"  ] true
+ * @exampleContextFormatter [ [23]     ] true
+ * @exampleContextFormatter [ {"id":3} ] true
+ * @exampleContextFormatter [ null     ] false
+ * @exampleContextFormatter [ []       ] false
+ * @exampleContextFormatter [ {}       ] false
+ * @exampleContextFormatter [ ""       ] false
+ *
+ * @param  {Mixed} d  data
+ */
+export function ifNEM(d: Mixed): Mixed;
 export class ifNEM {
-    constructor(d: any);
-    isConditionTrue: [type];
+    /**
+     * Matches not empty values, string, arrays or objects.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [ 0        ] true
+     * @exampleContextFormatter [ "homer"  ] true
+     * @exampleContextFormatter [ [23]     ] true
+     * @exampleContextFormatter [ {"id":3} ] true
+     * @exampleContextFormatter [ null     ] false
+     * @exampleContextFormatter [ []       ] false
+     * @exampleContextFormatter [ {}       ] false
+     * @exampleContextFormatter [ ""       ] false
+     *
+     * @param  {Mixed} d  data
+     */
+    constructor(d: Mixed);
+    isConditionTrue: boolean;
 }
-export function ifEQ(d: any, value: any): any;
+/**
+ * Matches all values that are equal to a specified value. It can be combined with other formatters to create conditional content. It returns the initial marker. The state of the condition is not returned.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [ 100      , 100     ] true
+ * @exampleContextFormatter [ 100      , 101     ] false
+ * @exampleContextFormatter [ "homer"  , "homer" ] true
+ * @exampleContextFormatter [ "homer"  , "bart"  ] false
+ * @exampleContextFormatter [ ""       , ""      ] true
+ * @exampleContextFormatter [ null     , 100     ] false
+ * @exampleContextFormatter [ null     , null    ] true
+ * @exampleContextFormatter [ 0        , 100     ] false
+ *
+ * @param {String|Integer} d
+ * @param {String|Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifEQ(d: string | Integer, value: string | Integer): any;
 export class ifEQ {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches all values that are equal to a specified value. It can be combined with other formatters to create conditional content. It returns the initial marker. The state of the condition is not returned.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [ 100      , 100     ] true
+     * @exampleContextFormatter [ 100      , 101     ] false
+     * @exampleContextFormatter [ "homer"  , "homer" ] true
+     * @exampleContextFormatter [ "homer"  , "bart"  ] false
+     * @exampleContextFormatter [ ""       , ""      ] true
+     * @exampleContextFormatter [ null     , 100     ] false
+     * @exampleContextFormatter [ null     , null    ] true
+     * @exampleContextFormatter [ 0        , 100     ] false
+     *
+     * @param {String|Integer} d
+     * @param {String|Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: string | Integer, value: string | Integer);
+    isConditionTrue: boolean;
 }
-export function ifNE(d: any, value: any): any;
+/**
+ * Matches all values that are not equal to a specified value. It can be combined with other formatters to create conditional content. It returns the initial marker. The state of the condition is not returned.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [ 100      , 100     ] false
+ * @exampleContextFormatter [ 100      , 101     ] true
+ * @exampleContextFormatter [ "homer"  , "homer" ] false
+ * @exampleContextFormatter [ "homer"  , "bart"  ] true
+ * @exampleContextFormatter [ ""       , ""      ] false
+ * @exampleContextFormatter [ null     , 100     ] true
+ * @exampleContextFormatter [ null     , null    ] false
+ * @exampleContextFormatter [ 0        , 100     ] true
+ *
+ * @param {String|Integer} d
+ * @param {String|Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifNE(d: string | Integer, value: string | Integer): any;
 export class ifNE {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches all values that are not equal to a specified value. It can be combined with other formatters to create conditional content. It returns the initial marker. The state of the condition is not returned.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [ 100      , 100     ] false
+     * @exampleContextFormatter [ 100      , 101     ] true
+     * @exampleContextFormatter [ "homer"  , "homer" ] false
+     * @exampleContextFormatter [ "homer"  , "bart"  ] true
+     * @exampleContextFormatter [ ""       , ""      ] false
+     * @exampleContextFormatter [ null     , 100     ] true
+     * @exampleContextFormatter [ null     , null    ] false
+     * @exampleContextFormatter [ 0        , 100     ] true
+     *
+     * @param {String|Integer} d
+     * @param {String|Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: string | Integer, value: string | Integer);
+    isConditionTrue: boolean;
 }
-export function ifGT(d: any, value: any): any;
+/**
+ * Matches values that are greater than a specified value.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [1234, 1] true
+ * @exampleContextFormatter ["50", "-29"] true
+ * @exampleContextFormatter ["32q", "4q2"] true
+ * @exampleContextFormatter ["1234Hello", "1"] true
+ * @exampleContextFormatter ["10", "8Hello1234"] true
+ * @exampleContextFormatter [-23, 19] false
+ * @exampleContextFormatter [1, 768] false
+ * @exampleContextFormatter [0, 0] false
+ * @exampleContextFormatter [-2891, "33Hello"] false
+ *
+ * @param {Integer} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifGT(d: Integer, value: Integer): Integer;
 export class ifGT {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches values that are greater than a specified value.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [1234, 1] true
+     * @exampleContextFormatter ["50", "-29"] true
+     * @exampleContextFormatter ["32q", "4q2"] true
+     * @exampleContextFormatter ["1234Hello", "1"] true
+     * @exampleContextFormatter ["10", "8Hello1234"] true
+     * @exampleContextFormatter [-23, 19] false
+     * @exampleContextFormatter [1, 768] false
+     * @exampleContextFormatter [0, 0] false
+     * @exampleContextFormatter [-2891, "33Hello"] false
+     *
+     * @param {Integer} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer, value: Integer);
+    isConditionTrue: boolean;
 }
-export function ifGTE(d: any, value: any): any;
+/**
+ * Matches values that are greater than or equal to a specified value.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [50, -29] true
+ * @exampleContextFormatter [1, 1] true
+ * @exampleContextFormatter [1290, 768] true
+ * @exampleContextFormatter ["1234", "1"] true
+ * @exampleContextFormatter [-23, 19] false
+ * @exampleContextFormatter [1, 768] false
+ * @exampleContextFormatter ["1" , "1234"] false
+ *
+ * @param {Integer} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifGTE(d: Integer, value: Integer): Integer;
 export class ifGTE {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches values that are greater than or equal to a specified value.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [50, -29] true
+     * @exampleContextFormatter [1, 1] true
+     * @exampleContextFormatter [1290, 768] true
+     * @exampleContextFormatter ["1234", "1"] true
+     * @exampleContextFormatter [-23, 19] false
+     * @exampleContextFormatter [1, 768] false
+     * @exampleContextFormatter ["1" , "1234"] false
+     *
+     * @param {Integer} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer, value: Integer);
+    isConditionTrue: boolean;
 }
-export function ifLT(d: any, value: any): any;
+/**
+ * Matches values that are less than a specified value.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [-23, 19] true
+ * @exampleContextFormatter [1, 768] true
+ * @exampleContextFormatter ["1" , "1234"] true
+ * @exampleContextFormatter ["123dsf", "103123"] true
+ * @exampleContextFormatter [-1299283, "-2891feihuwf"] true
+ * @exampleContextFormatter [50, -29] false
+ * @exampleContextFormatter [0, 0] false
+ * @exampleContextFormatter [1290, 768] false
+ * @exampleContextFormatter ["1234", "1"] false
+ *
+ * @param {Integer} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifLT(d: Integer, value: Integer): Integer;
 export class ifLT {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches values that are less than a specified value.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [-23, 19] true
+     * @exampleContextFormatter [1, 768] true
+     * @exampleContextFormatter ["1" , "1234"] true
+     * @exampleContextFormatter ["123dsf", "103123"] true
+     * @exampleContextFormatter [-1299283, "-2891feihuwf"] true
+     * @exampleContextFormatter [50, -29] false
+     * @exampleContextFormatter [0, 0] false
+     * @exampleContextFormatter [1290, 768] false
+     * @exampleContextFormatter ["1234", "1"] false
+     *
+     * @param {Integer} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer, value: Integer);
+    isConditionTrue: boolean;
 }
-export function ifLTE(d: any, value: any): any;
+/**
+ * Matches values that are less than or equal to a specified value.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter [-23, 19] true
+ * @exampleContextFormatter [1, 768] true
+ * @exampleContextFormatter [5, 5] true
+ * @exampleContextFormatter ["1" , "1234"] true
+ * @exampleContextFormatter [1290, 768] false
+ * @exampleContextFormatter ["1234", "1"] false
+ *
+ * @param {Integer} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifLTE(d: Integer, value: Integer): Integer;
 export class ifLTE {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches values that are less than or equal to a specified value.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter [-23, 19] true
+     * @exampleContextFormatter [1, 768] true
+     * @exampleContextFormatter [5, 5] true
+     * @exampleContextFormatter ["1" , "1234"] true
+     * @exampleContextFormatter [1290, 768] false
+     * @exampleContextFormatter ["1234", "1"] false
+     *
+     * @param {Integer} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer, value: Integer);
+    isConditionTrue: boolean;
 }
-export function ifIN(d: any, value: any): any;
+/**
+ * Matches any of the values specified in an array or string, it replaces `ifContain`.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter ["car is broken", "is"] true
+ * @exampleContextFormatter [[1, 2, "toto"], 2] true
+ * @exampleContextFormatter ["car is broken", "are"] false
+ * @exampleContextFormatter [[1, 2, "toto"], "titi"] false
+ *
+ * @param {Integer|String|Array} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifIN(d: Integer | string | any[], value: Integer): any;
 export class ifIN {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches any of the values specified in an array or string, it replaces `ifContain`.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter ["car is broken", "is"] true
+     * @exampleContextFormatter [[1, 2, "toto"], 2] true
+     * @exampleContextFormatter ["car is broken", "are"] false
+     * @exampleContextFormatter [[1, 2, "toto"], "titi"] false
+     *
+     * @param {Integer|String|Array} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer | string | any[], value: Integer);
+    isConditionTrue: boolean;
 }
-export function ifNIN(d: any, value: any): any;
+/**
+ * Matches none of the values specified in an array or string.
+ *
+ * @version 2.0.0
+ * @exampleContextFormatter ["car is broken", "are"] true
+ * @exampleContextFormatter [[1, 2, "toto"], "titi"] true
+ * @exampleContextFormatter ["car is broken", "is"] false
+ * @exampleContextFormatter [[1, 2, "toto"], 2] false
+ *
+ * @param {Integer|String|Array} d
+ * @param {Integer} value value to test
+ * @returns It returns the initial value `d`. The state of the condition is not returned.
+ */
+export function ifNIN(d: Integer | string | any[], value: Integer): any;
 export class ifNIN {
-    constructor(d: any, value: any);
-    isConditionTrue: [type];
+    /**
+     * Matches none of the values specified in an array or string.
+     *
+     * @version 2.0.0
+     * @exampleContextFormatter ["car is broken", "are"] true
+     * @exampleContextFormatter [[1, 2, "toto"], "titi"] true
+     * @exampleContextFormatter ["car is broken", "is"] false
+     * @exampleContextFormatter [[1, 2, "toto"], 2] false
+     *
+     * @param {Integer|String|Array} d
+     * @param {Integer} value value to test
+     * @returns It returns the initial value `d`. The state of the condition is not returned.
+     */
+    constructor(d: Integer | string | any[], value: Integer);
+    isConditionTrue: boolean;
 }
+/**
+ * hide text block between hideBegin and hideEnd if the condition is true
+ * @version 2.0.0
+ * @private
+ * @param {*} d
+ */
 export function hideBegin(d: any): string;
 export class hideBegin {
-    constructor(d: any);
+    /**
+     * hide text block between hideBegin and hideEnd if the condition is true
+     * @version 2.0.0
+     * @private
+     * @param {*} d
+     */
+    private constructor();
     isHidden: number;
     stopPropagation: boolean;
 }
+/**
+ * hide text block between hideBegin and hideEnd if the condition is true
+ * @version 2.0.0
+ * @private
+ */
 export function hideEnd(): string;
 export class hideEnd {
     isHidden: number;
 }
+/**
+ * Show a text block between showBegin and showEnd if the condition is true
+ * @version 2.0.0
+ * @private
+ * @param {*} d
+ */
 export function showBegin(d: any): string;
 export class showBegin {
-    constructor(d: any);
+    /**
+     * Show a text block between showBegin and showEnd if the condition is true
+     * @version 2.0.0
+     * @private
+     * @param {*} d
+     */
+    private constructor();
     isHidden: number;
     stopPropagation: boolean;
 }
+/**
+ * show a text block between showBegin and showEnd if the condition is true
+ * @version 2.0.0
+ * @private
+ */
 export function showEnd(): string;
 export class showEnd {
     isHidden: number;
 }
-export function show(d: any, message: any): any;
+/**
+ * Print a message if the condition is true. It should be used with other formatters to print conditional content.
+ *
+ * @version 2.0.0
+ * @example ["Carbone.io"]
+ *
+ * @param {Mixed} d marker
+ * @param {*} message message to print
+ */
+export function show(d: Mixed, message: any): any;
 export class show {
-    constructor(d: any, message: any);
-    stopPropagation: boolean;
-}
-export function elseShow(d: any, message: any): any;
-export class elseShow {
-    constructor(d: any, message: any);
+    /**
+     * Print a message if the condition is true. It should be used with other formatters to print conditional content.
+     *
+     * @version 2.0.0
+     * @example ["Carbone.io"]
+     *
+     * @param {Mixed} d marker
+     * @param {*} message message to print
+     */
+    constructor(d: Mixed, message: any);
     stopPropagation: boolean;
 }
 /**
- * Change default operator between conditional formatters
+ * Print a message if the condition is false. It should be used with other formatters to print conditional content.
+ *
+ * @version 2.0.0
+ * @param {Mixed} d marker
+ * @param {*} message message to print
+ */
+export function elseShow(d: Mixed, message: any): any;
+export class elseShow {
+    /**
+     * Print a message if the condition is false. It should be used with other formatters to print conditional content.
+     *
+     * @version 2.0.0
+     * @param {Mixed} d marker
+     * @param {*} message message to print
+     */
+    constructor(d: Mixed, message: any);
+    stopPropagation: boolean;
+}
+/**
+ * Change the default operator between conditional formatters.
  *
  * For example: `{d.car:ifEQ('delorean'):and(.speed):ifGT(80):show('TravelInTime'):elseShow('StayHere')}`
  * means "if  d.car equals 'delorean' AND d.speed is greater than 80, then it prints 'TravelInTime', otherwise
  * it prints 'StayHere'
  *
- * @version 2.0
+ * @version 2.0.0
  * @param  {Mixed} d      data
  * @param  {Mixed} value  [optional] new value to test
  * @return {Mixed}        if `value` is defined, the next formatter "sees" this new value instead of the original value
@@ -246,13 +624,13 @@ export class elseShow {
 export function and(d: Mixed, value: Mixed, ...args: any[]): Mixed;
 export class and {
     /**
-     * Change default operator between conditional formatters
+     * Change the default operator between conditional formatters.
      *
      * For example: `{d.car:ifEQ('delorean'):and(.speed):ifGT(80):show('TravelInTime'):elseShow('StayHere')}`
      * means "if  d.car equals 'delorean' AND d.speed is greater than 80, then it prints 'TravelInTime', otherwise
      * it prints 'StayHere'
      *
-     * @version 2.0
+     * @version 2.0.0
      * @param  {Mixed} d      data
      * @param  {Mixed} value  [optional] new value to test
      * @return {Mixed}        if `value` is defined, the next formatter "sees" this new value instead of the original value
@@ -261,14 +639,14 @@ export class and {
     isAndOperator: boolean;
 }
 /**
- * Change default operator between conditional formatters
+ * Change the default operator between conditional formatters.
  *
  * For example: `{d.car:ifEQ('delorean'):or(.speed):ifGT(80):show('TravelInTime'):elseShow('StayHere')}`
  * means "if  d.car equals 'delorean' OR d.speed is greater than 80, then it prints 'TravelInTime', otherwise
  * it prints 'StayHere'
  *
  *
- * @version 2.0
+ * @version 2.0.0
  * @param  {Mixed} d      data
  * @param  {Mixed} value  [optional] new value to test
  * @return {Mixed}        if `value` is defined, the next formatter "sees" this new value instead of the original value
@@ -276,14 +654,14 @@ export class and {
 export function or(d: Mixed, value: Mixed, ...args: any[]): Mixed;
 export class or {
     /**
-     * Change default operator between conditional formatters
+     * Change the default operator between conditional formatters.
      *
      * For example: `{d.car:ifEQ('delorean'):or(.speed):ifGT(80):show('TravelInTime'):elseShow('StayHere')}`
      * means "if  d.car equals 'delorean' OR d.speed is greater than 80, then it prints 'TravelInTime', otherwise
      * it prints 'StayHere'
      *
      *
-     * @version 2.0
+     * @version 2.0.0
      * @param  {Mixed} d      data
      * @param  {Mixed} value  [optional] new value to test
      * @return {Mixed}        if `value` is defined, the next formatter "sees" this new value instead of the original value
@@ -291,4 +669,17 @@ export class or {
     constructor(d: Mixed, value: Mixed, ...args: any[]);
     isAndOperator: boolean;
 }
+/**
+ * Returns the length of a string or array.
+ *
+ * @version 2.0.0
+ * @example ["Hello World"]
+ * @example [""]
+ * @example [[1, 2, 3, 4, 5]]
+ * @example [[1, "Hello"]]
+ *
+ * @param {Mixed} d Array or String
+ * @returns {Number} Length of the element
+ */
+export function len(d: Mixed): number;
 //# sourceMappingURL=condition.d.ts.map

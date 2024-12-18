@@ -104,6 +104,19 @@ declare const locales: {
             code: string;
         };
     };
+    ar: {
+        number: {
+            separator: string;
+            decimal: string;
+            group: number;
+        };
+        currency: {
+            L: (v: any, S: any, s: any, M: any, m: any, n: any) => string;
+            LL: (v: any, S: any, s: any, M: any, m: any, n: any) => string;
+            M: (v: any, S: any, s: any, M: any, m: any, n: any) => any;
+            code: string;
+        };
+    };
     'ar-dz': {
         number: {
             separator: string;

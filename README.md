@@ -1,4 +1,4 @@
-This is a fork of the carbone module.  Added support for images, improved work with tables, formulas, graphs.
+This is a fork of the carbone module (version 3.5.6).  Added support for images, improved work with tables, formulas, graphs.
 
 <details>
   <summary>
@@ -6,9 +6,9 @@ This is a fork of the carbone module.  Added support for images, improved work w
      <hr>
   </summary>
 
-  <p align="center">
+<p align="center">
   <a href="https://carbone.io/" target="_blank">
-    <img alt="CarboneJS" width="100" src="https://carbone.io/img/favicon.png">
+    <img alt="CarboneJS" width="100" src="https://carbone.io/img/carbone_icon_v3_github.png">
   </a>
 </p>
 
@@ -28,53 +28,71 @@ This is a fork of the carbone module.  Added support for images, improved work w
   <a href="https://bundlephobia.com/result?p=carbone">
     <img src="https://badgen.net/bundlephobia/minzip/carbone" alt="minizip badge">
   </a>
-  <a href="https://hub.docker.com/r/carbone/carbone-env-docker">
-    <img src="https://badgen.net/docker/pulls/ideolys/carbone-env-docker?icon=docker" alt="docker badge">
+  <a href="https://hub.docker.com/r/carbone/carbone-ee">
+    <img src="https://badgen.net/docker/pulls/carbone/carbone-ee?icon=docker" alt="docker badge">
   </a>
-  <a href="https://github.com/Ideolys/carbone">
-    <img src="https://badgen.net/github/forks/ideolys/carbone?icon=github" alt="github fork badge">
+  <a href="https://github.com/carboneio/carbone">
+    <img src="https://badgen.net/github/forks/carboneio/carbone?icon=github" alt="github fork badge">
   </a>
 </p>
 
 
+<p><b>⚡️ Fast, Simple and Powerful report generator</b> in any format PDF, DOCX, XLSX, ODT, PPTX, ODS, XML, CSV using templates and your JSON data as input !</p>
 
-<p><b>Fast, Simple and Powerful report generator</b> in any format PDF, DOCX, XLSX, ODT, PPTX, ODS, XML, CSV...
+### News 2024/11
 
-... using your JSON data as input !</p>
+Use the latest version (v4+) for free with our [Docker Edition](https://hub.docker.com/r/carbone/carbone-ee):
+
+```sh
+  docker pull carbone/carbone-ee
+```
+
+No license is required to start the [On-Premise Docker Edition](https://hub.docker.com/r/carbone/carbone-ee) with the REST API (same API as the [Cloud Edition](https://carbone.io/pricing.html)).
+You will only need a license if you want to use some advanced features. By default, only community features are enabled.
+
+Why? We try to optimize our time as much as possible. We are working on many things for the [long-awaited Carbone v5](https://carbone.io/carbone-v5.html) (new studio, new website, IA, ...).
+Activating community features in the Docker Edition was much easier. This edition is updated as often as the Enterprise Edition with our automatic CI.
+
+The Open Source Edition will be updated in v4 when the final v5 will be released. The open source edition is always one major version behind (v3+)
+
+Feel free to contact us [on the chat](https://carbone.io) if you need further information or  **professional support**. 
+
 
 ## Table of content
+
+README language: 🇨🇳 [简体中文](./doc/README.zh-cn.md), 🇺🇸 [English](README.md)
 
 <!-- MarkdownTOC -->
 
 - [Features](#features)
 - [How it works?](#how-it-works)
 - [Minimum Requirements](#minimum-requirements)
-    - [Optional](#optional)
 - [Getting started](#getting-started)
   - [Basic sample](#basic-sample)
   - [PDF generation, document conversion](#pdf-generation-document-conversion)
 - [More examples](#more-examples)
 - [API Reference](#api-reference)
 - [Command line tools](#command-line-tools)
+- [Issues](#issues)
+- [Roadmap](#roadmap)
 - [Performance](#performance)
 - [Licenses and editions](#licenses-and-editions)
 - [Philosophy](#philosophy)
-- [Roadmap](#roadmap)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
 
 ## Features
 
-  - **Extremely simple** : Use only LibreOffice™, OpenOffice™ or Microsoft Office™ to draw your report
-  - **Unlimited design** : The limit is your document editor: pagination, headers, footers, tables...
-  - **Convert documents** : thanks to the integrated document converter
-  - **Unique template engine** : Insert JSON-like markers `{d.companyName}` directly in your document
-  - **Flexible** : Use any XML documents as a template: docx, odt, ods, xlsx, html, pptx, odp, custom xml files...
-  - **Future-proof** : A powerful XML-agnostic algorithm understands what to do without knowing XML document specifications
-  - **Multilingual** : One template, multiple languages. Update translation files automatically
-  - **Format data** : Use built-in date and number formatters or create your own in Javascript
-  - **Fast** : Manage multiple LibreOffice threads for document conversion, optimized code generation for each report
+  - 🍏  **Extremely simple** : Create templates with LibreOffice™, Google Docs, Microsoft Office™, TinyMCE, CKEditor, ...
+  - 🎨 **Unlimited design** : The limit is your document editor: pagination, headers, footers, tables...
+  - 📝 **Convert documents** : thanks to the integrated document converter
+  - 📐 **Unique template engine** : Insert JSON-like markers `{d.companyName}` directly in your document
+  - ⭐️ **Flexible** : Use any XML documents as a template: docx, odt, ods, xlsx, html, pptx, odp, custom xml files...
+  - 🚀 **Future-proof** : A powerful XML-agnostic algorithm understands what to do without knowing XML document specifications
+  - 🌈 **Multilingual** : One template, multiple languages. Update translation files automatically
+  - 💎 **Format data** : Use built-in date and number formatters or create your own in Javascript
+  - 🏎 **Fast** : Manage multiple LibreOffice threads for document conversion, optimized code generation for each report
 
 ## How it works?
 
@@ -91,8 +109,8 @@ Carbone is working only on the server-side.
 
 ## Minimum Requirements
 
-- NodeJS 8.x+
-- Runs on OSX, Linux (servers and desktop), and coming soon on Windows
+- NodeJS 12.x+
+- Runs on OSX, Linux (servers and desktop), and Windows
 
 #### Optional
 
@@ -163,14 +181,14 @@ Carbone does a lot of thing for you behind the scene:
   # Download LibreOffice debian package. Select the right one (64-bit or 32-bit) for your OS.
   # Get the latest from http://download.documentfoundation.org/libreoffice/stable
   # or download the version currently "carbone-tested":
-  wget https://downloadarchive.documentfoundation.org/libreoffice/old/5.3.2.2/deb/x86_64/LibreOffice_5.3.2.2_Linux_x86-64_deb.tar.gz
+  wget https://downloadarchive.documentfoundation.org/libreoffice/old/7.5.1.1/deb/x86_64/LibreOffice_7.5.1.1_Linux_x86-64_deb.tar.gz
 
-  # Install required dependencies on ubuntu server for LibreOffice 5.0+
+  # Install required dependencies on ubuntu server for LibreOffice 7.0+
   sudo apt install libxinerama1 libfontconfig1 libdbus-glib-1-2 libcairo2 libcups2 libglu1-mesa libsm6
 
   # Uncompress package
-  tar -zxvf LibreOffice_5.3.2.2_Linux_x86-64_deb.tar.gz
-  cd LibreOffice_5.3.2.2_Linux_x86-64_deb/DEBS
+  tar -zxvf LibreOffice_7.5.1.1_Linux_x86-64_deb.tar.gz
+  cd LibreOffice_7.5.1.1_Linux_x86-64_deb/DEBS
 
   # Install LibreOffice
   sudo dpkg -i *.deb
@@ -265,13 +283,15 @@ To checkout out the Carbone CLI documentation, visit [carbone.io](https://carbon
 
 ## Issues
 
-If you're facing any issues, search a similar issue to ensure it doesn't already exist on [Github](https://github.com/Ideolys/carbone/issues). Otherwhise, [create an issue to help us](https://github.com/Ideolys/carbone/issues/new/choose).
+If you're facing any issues with this Community Edition, search a similar issue to ensure it doesn't already exist on [Github](https://github.com/carboneio/carbone/issues). Otherwhise, [create an issue to help us](https://github.com/carboneio/carbone/issues/new/choose).
 
 ## Roadmap
 
-The roadmap is pinned on on the github issues list.
+The roadmap is pinned on the github issues list.
 
 ## Performance
+
+⚡️ Secret news of 14th Februrary 2023: we are building our own PDF converter, x200 faster than LibreOffice! Stay tuned.
 
 Report generation speed (without network latency), using a basic one-page DOCX template:
 
@@ -280,32 +300,26 @@ Report generation speed (without network latency), using a basic one-page DOCX t
 
 On a MacBook Pro Mid-2015, 2,2 Ghz i7, 16Go.
 
-It could be even better when "code cache" will be activated. Coming soon...
-
 ## Licenses and editions
 
 There are two editions of Carbone:
 
-- Carbone Community Edition is available freely under the **Apache v2 license**
-- Carbone Enterprise Edition (hosted and on-premise) includes extra features like a user interface.
+- Carbone Community Edition is freely available under the [CCL Agreement](LICENSE.md). Roughly speaking, as long as you are not offering Carbone Community Edition Software as a hosted
+  Document-Generator-as-a-Service like [Carbone Cloud](https://carbone.io/pricing.html), you can use and modify all Community features for free.
+- Carbone Enterprise Edition (hosted and on-premise) includes additional features. [See comparison table](https://carbone.io/pricing.html#product-comparison)
 
-We want to follow the model of Gitlab. **The free version must be and must stay generous.**
-
+The Community Edition is one major version behind the Enterprise Edition. This rule may change in the future.
 
 ## Philosophy
 
 > Our ultimate goal
 
-2% percent of our hosted solution revenues will go to charity in three domains: open source software we love, education and environment.
+[2% percent](https://help.carbone.io/en-us/article/2-for-charitable-purposes-59iyg3) of our hosted solution revenues goes to charity
 
-We already know that beneficiaries will be, at least :heart:
-- LibreOffice foundation
-- PostgreSQL foundation
-- An innovative child school in France
 
 ## Contributors
 
-Thanks to all Ideolys's direct contributors (random order)
+Thanks to all Carbone contributors (random order)
 
   - Florian Bezagu
   - Matthieu Robin
@@ -322,10 +336,10 @@ Thanks to all Ideolys's direct contributors (random order)
   - Aurélien Kermabon
   - [Steeve Payraudeau](https://github.com/steevepay)
 
-Thanks to all French citizens (Crédit Impôt Recherche, Jeune Entreprise Innovante, BPI)!
+
 </details>
 
-# Changes:
+# Changes (don't work with nested arrays):
 
 ## API:
 
@@ -447,7 +461,7 @@ Example: {d.image:imageSize(100,200)}
   </tr>
 </table>
 
-### FORMULAS
+### FORMULAS (needs recalculation)
 <hr>
 
 <table>

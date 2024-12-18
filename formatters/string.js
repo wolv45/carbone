@@ -1,7 +1,9 @@
+var toMd5 = require('./md5');
+
 
 const LINEBREAK = {
-  odt  : '<text:line-break/>',
-  docx : '</w:t><w:br/><w:t>'
+  odt: '<text:line-break/>',
+  docx: '</w:t><w:br/><w:t>'
 };
 
 /**
@@ -17,7 +19,7 @@ const LINEBREAK = {
  * @param  {String} d string to parse
  * @return {String}   lower case on all letters, or `d` is it not a string
  */
-function lowerCase (d) {
+function lowerCase(d) {
   if (typeof d === 'string') {
     return d.toLowerCase();
   }
@@ -37,7 +39,7 @@ function lowerCase (d) {
  * @param  {String} d string to parse
  * @return {String}   upper case on all letters, or `d` is it not a string
  */
-function upperCase (d) {
+function upperCase(d) {
   if (typeof d === 'string') {
     return d.toUpperCase();
   }
@@ -58,7 +60,7 @@ function upperCase (d) {
  * @param  {String} d string to parse
  * @return {String}   upper case on the first letter, or `d` is it not a string
  */
-function ucFirst (d) {
+function ucFirst(d) {
   if (typeof d === 'string') {
     return d.charAt(0).toUpperCase() + d.slice(1);
   }
@@ -79,7 +81,7 @@ function ucFirst (d) {
  * @param  {String} d string to parse
  * @return {String}   upper case on all words, or `d` is it not a string
  */
-function ucWords (d) {
+function ucWords(d) {
   if (typeof d === 'string') {
     return d.replace(/(?:^|\s)\S/g, function (a) {
       return a.toUpperCase();
@@ -102,7 +104,7 @@ function ucWords (d) {
  * @param  {String}  message     text to print
  * @return {String} `message` is always printed
  */
-function print (d, message) {
+function print(d, message) {
   return message;
 }
 
@@ -128,7 +130,7 @@ function print (d, message) {
  * @param  {String}         type   enum name passed in `options` of `carbone.render(data, options)`
  * @return {String}         return human readable enum or original value if it cannot be converted
  */
-function convEnum (d, type) {
+function convEnum(d, type) {
   if (this.enum !== undefined) {
     var _type = this.enum[type];
     if (_type !== undefined && _type[d] !== undefined) {
@@ -152,7 +154,7 @@ function convEnum (d, type) {
  * @param  {String} d string to parse
  * @return {String}   string without accent
  */
-function unaccent (d) {
+function unaccent(d) {
   if (typeof d === 'string') {
     return d.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
@@ -178,11 +180,11 @@ function unaccent (d) {
  * @param  {Integer|String} d
  * @return {String}         return "XML carriage return" for odt and docx
  */
-function convCRLF (d) {
+function convCRLF(d) {
   if (typeof d === 'string') {
     var _lineBreak = LINEBREAK[this.extension];
     if (_lineBreak) {
-      return d.replace(/\\n|\r?\n/g, _lineBreak);
+      return d.replace(/\r?\n/g, _lineBreak);
     }
   }
   return d;
@@ -205,7 +207,7 @@ convCRLF.canInjectXML = true;
  * @param {Integer} end Zero-based index before which to end extraction
  * @return {String} return the formatted string
  */
-function substr (d, begin, end) {
+function substr(d, begin, end) {
   if (typeof d === 'string') {
     return d.slice(begin, end);
   }
@@ -236,7 +238,7 @@ function imageSize(d, width, height) {
  *                               within the targetLength, it will be truncated from the end. The default value is " "
  * @return {String} return the padded left string
  */
-function padl (d, targetLength, padString) {
+function padl(d, targetLength, padString) {
   var _padString = ' ';
   if (padString !== undefined) {
     _padString = padString;
@@ -268,7 +270,7 @@ function padl (d, targetLength, padString) {
  *                               within the targetLength, it will be truncated from the end. The default value is " "
  * @return {String} return the padded right string
  */
-function padr (d, targetLength, padString) {
+function padr(d, targetLength, padString) {
   var _padString = ' ';
   if (padString !== undefined) {
     _padString = padString;
@@ -282,10 +284,18 @@ function padr (d, targetLength, padString) {
   return d;
 }
 
+function md5(d) {
+  return toMd5(d);
+}
+
+function prepend(d, toPrepend) {
+  return toPrepend + d;
+}
+
 function processLists(html) {
   html = html.replace(/(<li>)(.+?)(<ul>)/, '$1$2</li><li>$3');
   const lists = html.match(/(<li>)(?!(<ul>|<ol>))(.*?)(<\/li>)/g);
-  if(!lists) return html;
+  if (!lists) return html;
   lists.forEach(list => {
     html = html.replace(list, list.replace(/(<li>)(?!(<ul>|<ol>))(.*?)(<\/li>)/, '$1<span>{num}</span><p>$3</p><label> </label>$4'));
   });
@@ -300,18 +310,20 @@ function html(d) {
 }
 
 module.exports = {
-  lowerCase : lowerCase,
-  upperCase : upperCase,
-  ucFirst   : ucFirst,
-  ucWords   : ucWords,
-  convEnum  : convEnum,
-  convCRLF  : convCRLF,
-  unaccent  : unaccent,
-  print     : print,
-  substr    : substr,
-  slice     : substr,
-  padl      : padl,
-  padr      : padr,
+  lowerCase: lowerCase,
+  upperCase: upperCase,
+  ucFirst: ucFirst,
+  ucWords: ucWords,
+  convEnum: convEnum,
+  convCRLF: convCRLF,
+  unaccent: unaccent,
+  print: print,
+  substr: substr,
+  slice: substr,
+  padl: padl,
+  padr: padr,
   imageSize: imageSize,
+  md5: md5,
+  prepend: prepend,
   html: html
 };

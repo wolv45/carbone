@@ -1,7 +1,13 @@
+export let CPU_PERFORMANCE_FACTOR: number;
 export function getUID(): string;
-export function assert(result: any, expected: any, message: any): type;
-export function readFileDirSync(dir: string, extension: string): any;
+export let RANDOM_STRING_LENGTH: number;
+export function getRandomString(): any;
+export function encodeSafeFilename(str: string): string;
+export function decodeSafeFilename(filename: string): string;
+export function assert(result: object, expected: object): type;
+export function readFileDirSync(dir: string, extension: string): object;
 export function cleanJavascriptVariable(attributeName: any): any;
+export function removeQuote(str: Strring): string;
 export function rmDirRecursive(dir: type): void;
 export function rmDirRecursiveAsync(dir: type, callback: Function): void;
 export function getValueOfPath(rootObj: any, path: string): Mixed;
@@ -11,6 +17,7 @@ export function writeFileDirSync(root: string, fileOrDirPath: string, content: s
 export function replaceAll(str: any, find: any, replace: any): any;
 export function regexEscape(str: string): string;
 export function removeDuplicatedRows(sortedArrayToClean: any[]): any[];
-export function findClosest(str: string, choices: any): string;
+export function findClosest(str: string, choices: any[] | any): string;
 export function distance(s1: string, s2: string): Integer;
+export function updatePerformanceFactor(): void;
 //# sourceMappingURL=helper.d.ts.map

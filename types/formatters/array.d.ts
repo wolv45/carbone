@@ -1,6 +1,8 @@
 /**
  * Flatten an array of String or Number
  *
+ * @version 0.12.5
+ *
  * @example [ ["homer", "bart", "lisa"]        ]
  * @example [ ["homer", "bart", "lisa"] , " | "]
  * @example [ ["homer", "bart", "lisa"] , ""   ]
@@ -17,6 +19,9 @@
  */
 export function arrayJoin(d: any[], separator: string): string;
 /**
+ *
+ * @version 0.12.5
+ *
  * Flatten an array of objects
  *
  * It ignores nested objects and arrays
@@ -45,6 +50,8 @@ export function arrayMap(d: any[], objSeparator: string, attributeSeparator: str
  * Count and print row number of any array
  *
  * Usage example: `d[i].id:count()` will print a counter of the current row no matter the value of `id`
+ *
+ * @version 1.1.0
  *
  * @param   {String}  d       Array passed by carbone
  * @param   {String}  start   Number to start with (default: 1)

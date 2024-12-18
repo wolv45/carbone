@@ -1,4 +1,4 @@
-export const formatters: {};
+export const formatters: any;
 /**
  * Parse options coming from user-side. Clean it and generate a safe options object for internal use
  *
