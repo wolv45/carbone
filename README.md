@@ -339,8 +339,6 @@ Thanks to all Carbone contributors (random order)
 
 </details>
 
-# Changes (don't work with nested arrays):
-
 ## API:
 
 Usage (callback style):
