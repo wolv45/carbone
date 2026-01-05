@@ -1,5 +1,5 @@
 {
-  "name": "@rodewitsch/carbone",
+  "name": "@wolv45/carbone",
   "description": "Fast, Simple and Powerful report generator. Injects JSON and produces PDF, DOCX, XLSX, ODT, PPTX, ODS, ...!",
   "version": "5.0.0-beta",
   "bin": "bin/carbone",
@@ -8,10 +8,10 @@
   "bundleDependencies": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodewitsch/carbone"
+    "url": "https://github.com/wolv45/carbone"
   },
   "author": {
-    "name": "Fork of the original work of David Grelaud"
+    "name": "Fork of the original work of David Grelaud and @Rodeswitch"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "homepage": "https://carbone.io",
